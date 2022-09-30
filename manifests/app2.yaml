@@ -1,0 +1,15 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: demo
+  namespace: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: hub
+  source:
+    path: manifests/argo
+    repoURL: https://github.com/EsenbaevaNurzada/medium-argocd.git
+    targetRevision: HEAD
+  syncPolicy: {}
